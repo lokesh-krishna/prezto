@@ -14,11 +14,9 @@ if [[ "$OSTYPE" == darwin* ]]; then
 fi
 
 #
-# Editors
+# Editors and Pagers
 #
 
-export EDITOR='nano'
-export VISUAL='nano'
 export PAGER='less'
 
 #
@@ -73,5 +71,10 @@ fi
 # Launch X upon login
 #
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
-	exec startx
+	exec startx -- -keeptty > ~/.xorg.log 2>&1
 fi
+
+#
+# Hide startx messages
+#
+[[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1 &> /dev/null

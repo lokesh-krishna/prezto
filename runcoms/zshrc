@@ -43,11 +43,11 @@ export EDITOR=nvim
 # Download videos as mp3
 alias mp3='youtube-dl -x --audio-format=mp3' 
 
-# Check if icon is available in Papirus
-alias icon='ls /home/loki/.icons/Papirus/64x64/apps/ | grep' 
-
 # Settings for feh
 alias feh='feh --draw-filename --draw-tinted --image-bg black --scale-down --fontpath /home/loki/.local/share/fonts/Hack/ --font Hack-Regular/10'
+
+# Mount my veracrypt volume
+alias vera='veracrypt --mount /run/media/loki/Loki/tergum'
 
 # Backup system
 alias backup='rsync --archive --delete \
@@ -61,17 +61,23 @@ alias backup='rsync --archive --delete \
 	~/.task \
 	~/.taskrc \
 	~/.zprezto \
-	~/Backup \
+	~/backups \
 	~/bin \
-	~/Documents \
-	~/Downloads \
-	~/Music \
-	~/Sync \
-	~/Pictures \
+	~/documents \
+	~/downloads \
+	~/music \
+	~/sync \
+	~/pictures \
 	/mnt/veracrypt1/'
 
 # Open files with the .md extension automatically with Vim
 alias -s md=nvim 
+
+# Open my ledger file by default  
+alias ledger='ledger -f /home/loki/sync/ledger/ledger.dat'
+
+# Color output for sdcv
+alias sdcv='sdcv --color'
 
 ########################################
 # Shell Functions
